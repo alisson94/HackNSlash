@@ -10,5 +10,5 @@ function create_hitbox(x_pos,y_pos,creator, sprite, knockback, lifespan, damage,
 	hitbox.image_xscale = xscale
 	hitbox.image_yscale = abs(xscale)
 
-
+	show_debug_message("hitbox : " + string(sprite))
 }

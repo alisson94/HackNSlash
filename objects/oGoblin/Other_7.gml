@@ -6,7 +6,8 @@ if state == "attack" or state == "attacked"{
 	instance_destroy(self)
 	global.quantEnemy--
 	
-	instance_create_layer(x, y, "Instances", oCoin)
+	instance_create_layer(x, y, "Instances", oBomb)
+
 }
 
 

@@ -17,6 +17,7 @@ isEnemy = false
 
 onAnimation = false
 isCombo =false
+leng_dash = 0
 
 dPressed = false
 aPressed = false

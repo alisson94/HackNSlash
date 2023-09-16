@@ -39,7 +39,9 @@ if y + vsp > 480 {
 	vsp += grav
 }
 		
-if keyboard_check_pressed(ord("K")) state = "attack"
+if keyboard_check_pressed(ord("K")) && !onAnimation state = "attack"
+if keyboard_check_pressed(ord("J")) state = "dash"
+
 
 switch (state){
 	case "move":
@@ -74,10 +76,20 @@ switch (state){
 		x += knockback_speed
 		onAnimation = true
 	break
-		
+	case "dash":
+		x += spd*5*sign(image_xscale)
+		leng_dash += abs(spd*5*sign(image_xscale))
+		onAnimation = true
+		if leng_dash > 300{
+			leng_dash = 0 
+			state = "move"
+			onAnimation = false
+		}
+	break
 	case "death":
 		switchSprite(sPlayerDeath, 0)
 		onAnimation = true
 	break
 }
+
 //show_debug_message(state)

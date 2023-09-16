@@ -1,10 +1,16 @@
+if global.coins >= 10 && !instance_exists(oEvilWizard){
+	var boss = instance_create_layer(room_width + 100, 480, "Instances", oEvilWizard)
+	boss.image_xscale = 4
+	boss.image_yscale = 4
+	max_enemy = 0
+}
+
 if global.quantEnemy >= max_enemy return
 
 randomise()
 
 var pos_x_1 = irandom_range(0, camera_get_view_x(view_camera[0]))
 var pos_x_2 = irandom_range(camera_get_view_x(view_camera[0])+camera_get_view_width(view_camera[0]), room_width)
-
 
 
 var enemyType = choose(oSkeleton, oGoblin)
@@ -15,7 +21,3 @@ enemy.image_xscale = 2.75
 enemy.image_yscale = 2.75
 global.quantEnemy++
 
-
-show_debug_message(enemyType)
-show_debug_message(camera_get_view_width(view_camera[0]))
-show_debug_message(room_width)

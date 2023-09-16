@@ -14,4 +14,7 @@ screenshake(10, 1, 0.4)
 repeat(15){
 	var effect = instance_create_layer(other.x, other.y-50, "effects", oHitEffect)
 }
-other.state = "attacked"
+
+if other.object_index != oEvilWizard{
+	other.state = "attacked"
+}

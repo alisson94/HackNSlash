@@ -54,6 +54,7 @@
     {"name":"sEvilWizardAttack1","order":12,"path":"sprites/sEvilWizardAttack1/sEvilWizardAttack1.yy",},
     {"name":"sSkeletonIdle","order":1,"path":"sprites/sSkeletonIdle/sSkeletonIdle.yy",},
     {"name":"oGoblin","order":8,"path":"objects/oGoblin/oGoblin.yy",},
+    {"name":"sEvilWizardAttack1HitBoxBackup","order":14,"path":"sprites/sEvilWizardAttack1HitBoxBackup/sEvilWizardAttack1HitBoxBackup.yy",},
     {"name":"sEvilWizardRun","order":5,"path":"sprites/sEvilWizardRun/sEvilWizardRun.yy",},
     {"name":"oLifeform","order":3,"path":"objects/oLifeform/oLifeform.yy",},
     {"name":"snd_player_run","order":1,"path":"sounds/snd_player_run/snd_player_run.yy",},

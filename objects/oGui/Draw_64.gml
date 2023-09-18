@@ -10,3 +10,4 @@ draw_text_transformed(x,y+20, "Moedas: "+ string(global.coins), 2,2, 0)
 
 
 
+

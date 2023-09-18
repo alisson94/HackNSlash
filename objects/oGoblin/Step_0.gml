@@ -27,7 +27,7 @@ switch state{
 		switchSprite(sGoblinTake_Hit, 0)
 		x += knockback_speed
 		//if !audio_is_playing(snd_enemy_damage) audio_play_sound(snd_enemy_damage, 2, 0)
-		if hp < 0 {
+		if hp <= 0 {
 			state = "death"
 		}
 		break

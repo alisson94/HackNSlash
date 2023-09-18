@@ -1,3 +1,7 @@
+if hp < 0 {
+	state = "death"
+}
+
 switch state{
 	case "chase":
 		if instance_exists(oPlayer){
@@ -22,18 +26,8 @@ switch state{
 	case "attack1":
 		switchSprite(sEvilWizardAttack1, 0)
 		if image_index == 4{
-			create_hitbox(x, y, self, sEvilWizardAttack1HitBox, 14,4,1, image_xscale)
+			create_hitbox(x, y, self, sEvilWizardAttack1HitBox, 24,4,15, image_xscale)
 			
-			show_debug_message("hitbox")
-		}
-		break
-	case "attacked":
-		//switchSprite(sEvilWizardTake_hit, 0)
-		
-		//x += knockback_speed 
-		
-		if hp < 0 {
-			state = "death"
 		}
 		break
 	case "death":

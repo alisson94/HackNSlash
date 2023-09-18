@@ -1,11 +1,11 @@
 event_inherited()
 
 hsp = 2
-range_attack = 250
+range_attack = 275
 knockback_speed = 0
 scale = 4
 
-hp = 100
+hp = 50
 animation_on = false
 isEnemy = true
 

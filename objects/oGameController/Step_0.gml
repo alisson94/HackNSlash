@@ -2,7 +2,7 @@ if global.coins >= 10 && !instance_exists(oEvilWizard){
 	var boss = instance_create_layer(room_width + 100, 480, "Instances", oEvilWizard)
 	boss.image_xscale = 4
 	boss.image_yscale = 4
-	max_enemy = 0
+	max_enemy = 3
 }
 
 if global.quantEnemy >= max_enemy return

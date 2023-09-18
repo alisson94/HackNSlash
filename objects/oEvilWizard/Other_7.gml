@@ -1,7 +1,7 @@
 animation_on = false
 if state == "attack1"{
 	state = "stall"
-	alarm[0] = 30
+	alarm[0] = 50
 
 }else if state == "death"{
 	instance_destroy(self)

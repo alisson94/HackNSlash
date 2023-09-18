@@ -1,4 +1,13 @@
-move = dPressed - aPressed
+
+		
+if keyboard_check_pressed(ord("K")) && !onAnimation state = "attack"
+if keyboard_check_pressed(ord("J")) state = "dash"
+
+
+switch (state){
+	case "move":
+		//defaukt state
+		move = dPressed - aPressed
 hsp = move * spd
 	
 if state != "death"{//manual moviment
@@ -38,19 +47,11 @@ if y + vsp > 480 {
 }else {
 	vsp += grav
 }
-		
-if keyboard_check_pressed(ord("K")) && !onAnimation state = "attack"
-if keyboard_check_pressed(ord("J")) state = "dash"
-
-
-switch (state){
-	case "move":
-		//defaukt state
 	break
 	case "attack":
 		switchSprite(sPlayerAttack1, 0)
 		if image_index == 4{
-			create_hitbox(x,y,self, sPlayerAttack1Hitbox, 6, 4, 1, image_xscale)
+			create_hitbox(x,y,self, sPlayerAttack1Hitbox, 6, 4, 2, image_xscale)
 			audio_play_sound(snd_player_attack_1, 3,0)
 		}
 		onAnimation = true

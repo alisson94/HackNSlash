@@ -1,21 +1,18 @@
 switch state{
 	case "chase":
+		var sinal = -sign(x-oPlayer.x)
+		
 		if instance_exists(oPlayer){
-			image_xscale = 2.5 * -sign(x-oPlayer.x)
-			if point_distance(x, y, oPlayer.x, oPlayer.y) > range_attack {
-				if x - oPlayer.x > 0 {
-					x-=hsp
-					switchSprite(sGoblinRun,0)
-				}else{
-					x+=hsp
-					switchSprite(sGoblinRun,0)
-				}
-
-			} else{
+			if x-oPlayer.x != 0 image_xscale = 2.5 * sinal
+			if point_distance(x, y, oPlayer.x, oPlayer.y) < range_attack{
 				state =	"attack"
+				
+			} else{
+				x+=hsp*sinal
+				switchSprite(sGoblinRun,0)
 			}
 		}
-		break
+	break
 	case "attack":
 		switchSprite(sGoblinAttack, 0)
 		//show_debug_message(image_index)

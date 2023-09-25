@@ -1,53 +1,54 @@
-
-		
 if keyboard_check_pressed(ord("K")) && !onAnimation state = "attack"
 if keyboard_check_pressed(ord("J")) state = "dash"
+if keyboard_check_pressed(ord("E")) && !onAnimation && numItensHeath>0 state = "healing"
+if keyboard_check_pressed(ord("H")) numItensHeath++
+
 
 
 switch (state){
 	case "move":
 		//defaukt state
 		move = dPressed - aPressed
-hsp = move * spd
-	
-if state != "death"{//manual moviment
-	x+= hsp
-	y+= vsp
+		hsp = move * spd
+
+		//manual moviment
+		x += hsp
+		y += vsp
 		
-	if keyboard_check_pressed(ord("W")){
-		vsp = jump
-	}
-}
+		if keyboard_check_pressed(ord("W")){
+			vsp = jump
+		}
 		
-if !onAnimation{//troca de sprite e lado
-	if move >0{
-		switchSprite(sPlayerRun, 0)
-		image_xscale = 2.75
-		if !audio_is_playing(snd_player_run) audio_play_sound(snd_player_run, 2, 0)
+		if !onAnimation{//troca de sprite e lado
+			if move >0{
+				switchSprite(sPlayerRun, 0)
+				image_xscale = 2.75
+				if !audio_is_playing(snd_player_run) audio_play_sound(snd_player_run, 2, 0)
 		
-	}else if move < 0{
-		switchSprite(sPlayerRun, 0)
-		image_xscale = -2.75
-	}else{
-		switchSprite(sPlayer, 0)
-	}
+			}else if move < 0{
+				switchSprite(sPlayerRun, 0)
+				image_xscale = -2.75
+			}else{
+				switchSprite(sPlayer, 0)
+			}
 			
-	if vsp > 0{
-		switchSprite(sPlayerFall,0)
-	}else if vsp < 0{
-		switchSprite(sPlayerJump,0)
-	}
-}
+			if vsp > 0{
+				switchSprite(sPlayerFall,0)
+			}else if vsp < 0{
+				switchSprite(sPlayerJump,0)
+			}
+		}
 		
-if y + vsp > 480 {
-	while !(y + sign(vsp)> 480){
-		y+=sign(vsp)
-	}
-	vsp = 0
-}else {
-	vsp += grav
-}
+		if y + vsp > 480 {
+			while !(y + sign(vsp)> 480){
+				y+=sign(vsp)
+			}
+			vsp = 0
+		}else {
+			vsp += grav
+		}
 	break
+	
 	case "attack":
 		switchSprite(sPlayerAttack1, 0)
 		if image_index == 4{
@@ -61,6 +62,7 @@ if y + vsp > 480 {
 		}
 		
 	break
+	
 	case "attack2":
 		switchSprite(sPlayerAttack2, 0)
 		if image_index == 4{
@@ -72,20 +74,35 @@ if y + vsp > 480 {
 		isCombo = false
 		
 	break
+	
 	case "attacked":
 		switchSprite(sPlayerTakeHit, 0)
 		x += knockback_speed
 		onAnimation = true
 	break
+	
 	case "dash":
-		x += spd*5*sign(image_xscale)
-		leng_dash += abs(spd*5*sign(image_xscale))
+		spd_dash-=10
+		
+		x += spd_dash*sign(image_xscale)
+		leng_dash += abs(spd_dash)
 		onAnimation = true
-		if leng_dash > 300{
-			leng_dash = 0 
+		if spd_dash == 0{
+			spd_dash = spd*9 
 			state = "move"
 			onAnimation = false
 		}
+	break
+	case "healing":
+		if hp+20>max_hp{
+			hp = max_hp
+		}else{
+			hp+=20
+		}
+		
+		numItensHeath--
+		state="move"
+		
 	break
 	case "death":
 		switchSprite(sPlayerDeath, 0)

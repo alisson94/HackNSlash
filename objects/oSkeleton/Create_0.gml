@@ -11,3 +11,7 @@ isEnemy = true
 state = "chase"
 
 hitboxes = 0
+
+
+image_xscale = 2.75
+image_yscale  = 2.75

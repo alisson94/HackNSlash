@@ -5,6 +5,7 @@ if state == "attack" or state == "attacked"{
 }else if state == "death"{
 	instance_destroy(self)
 	global.quantEnemy--
+	global.quantEnemyDeath++
 	
 	instance_create_layer(x, y, "Instances", oCoin)
 }

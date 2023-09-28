@@ -1,11 +1,12 @@
 #region camera
-x_pos = 0
-y_pos = 0
-
 target_ = oPlayer
 width_ = camera_get_view_width(view_camera[0])
 height_ = camera_get_view_height(view_camera[0])
+
+x_pos = target_.x
+y_pos = target_.y
 #endregion
+
 #region screenshake
 x_screenshake = 0
 y_screenshake = 0

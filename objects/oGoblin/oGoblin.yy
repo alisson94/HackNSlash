@@ -4,7 +4,6 @@
   "name": "oGoblin",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,},
   ],
   "managed": true,
@@ -14,8 +13,8 @@
     "path": "folders/Objetos.yy",
   },
   "parentObjectId": {
-    "name": "oLifeform",
-    "path": "objects/oLifeform/oLifeform.yy",
+    "name": "oEnemy_parent",
+    "path": "objects/oEnemy_parent/oEnemy_parent.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

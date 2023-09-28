@@ -3,8 +3,9 @@ event_inherited()
 state = "move"
 
 spd = 10
-spd_dash = spd*9
+spd_dash = spd*6
 jump = -20
+img_scale = 4.75
 
 move = 0
 hsp = 0

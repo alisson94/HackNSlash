@@ -12,6 +12,11 @@ state = "chase"
 
 hitboxes = 0
 
+spriteRun = sSkeletonRun
+spriteAttack = sSkeletonAttack
+spriteAttackHitbox = sSkeletonAttackHitbox
+spriteTake_Hit = sSkeletonTake_Hit
+spriteDeath = sSkeletonDeath
 
 image_xscale = 2.75
 image_yscale  = 2.75

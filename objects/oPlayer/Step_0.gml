@@ -1,9 +1,29 @@
+if keyboard_check_pressed(ord("Q")) room_goto(Room2)
+
 if keyboard_check_pressed(ord("K")) && !onAnimation state = "attack1"
 if keyboard_check_pressed(ord("J")) state = "dash"
 if keyboard_check_pressed(ord("E")) && !onAnimation && numItensHeath>0 state = "healing"
 if keyboard_check_pressed(ord("H")) numItensHeath++
 if keyboard_check(ord("L")) && !onAnimation state = "block"
+if keyboard_check_released(ord("L")){
+	state = "move"
+	parry_end = false
+}
 
+if place_meeting(x,y + vsp, oWall){
+	while !place_meeting(x,y + sign(vsp), oWall){
+		y+=sign(vsp)
+	}
+	vsp = 0
+}else {
+	vsp += grav
+			
+	if vsp > 0{
+		switchSprite(sPlayerFall,0)
+	}else if vsp <= 0{
+		switchSprite(sPlayerJump,0)
+	}
+}
 
 switch (state){
 	case "move":
@@ -34,27 +54,14 @@ switch (state){
 			
 		}
 		
-		if y + vsp > 480 {
-			while !(y + sign(vsp)> 480){
-				y+=sign(vsp)
-			}
-			vsp = 0
-		}else {
-			vsp += grav
-			
-			if vsp > 0{
-				switchSprite(sPlayerFall,0)
-			}else if vsp <= 0{
-				switchSprite(sPlayerJump,0)
-			}
-		}
+		
 	break
 	
 	case "attack1":
 		switchSprite(sPlayerAttack1, 0)
 		if image_index == 2{
 			create_hitbox(x,y,self, sPlayerAttack1Hitbox, 0, 4, 3, image_xscale)
-			audio_play_sound(snd_player_attack_1, 3,0)
+			audio_play_sound(snd_player_attack_2, 3,0)
 		}
 		onAnimation = true
 		
@@ -68,7 +75,7 @@ switch (state){
 		switchSprite(sPlayerAttack2, 0)
 		if image_index == 3{
 			create_hitbox(x,y,self, sPlayerAttack2Hitbox, 3, 4, 3, image_xscale)
-			audio_play_sound(snd_player_attack_2, 3,0)
+			audio_play_sound(snd_player_attack_1, 3,0)
 
 		}
 		onAnimation = true
@@ -82,8 +89,8 @@ switch (state){
 	case "attack3":
 		switchSprite(sPlayerAttack3, 0)
 		if image_index == 2{
-			create_hitbox(x,y,self, sPlayerAttack3Hitbox, 10, 4, 4, image_xscale)
-			audio_play_sound(snd_player_attack_1, 3,0)
+			create_hitbox(x,y,self, sPlayerAttack3Hitbox, 12, 4, 4, image_xscale)
+			audio_play_sound(snd_player_attack_2, 3,0)
 
 		}
 		onAnimation = true
@@ -98,20 +105,22 @@ switch (state){
 	case "dash":
 		if !spd_dash <= 0{
 			switchSprite(sPlayerSlide,0)
-			spd_dash-=10
+			spd_dash = approch(spd_dash, 0, 4)
 		}
 		
 		x += spd_dash*sign(image_xscale)
-		leng_dash += abs(spd_dash)
 		onAnimation = true
-		if spd_dash <= 0{
-			spd_dash = 0
+		if spd_dash == 0{
+			//spd_dash = 0
 			switchSprite(sPlayerStand, 0)
 		}
 	break
 	case "block":
 		switchSprite(sPlayerBlock, 0)
-		create_parrybox(x, y, 20)
+		if !parry_end {
+			create_parrybox(x, y, 20)
+			parry_end = true
+		}
 		
 	break
 	case "healing":

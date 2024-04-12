@@ -1,3 +1,4 @@
+if keyboard_check_pressed(ord("R")) game_restart()
 
 #region camera
 if !instance_exists(target_) exit;

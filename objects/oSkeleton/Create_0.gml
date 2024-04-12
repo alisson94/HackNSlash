@@ -10,13 +10,13 @@ isEnemy = true
 
 state = "chase"
 
-hitboxes = 0
-
 spriteRun = sSkeletonRun
 spriteAttack = sSkeletonAttack
 spriteAttackHitbox = sSkeletonAttackHitbox
 spriteTake_Hit = sSkeletonTake_Hit
 spriteDeath = sSkeletonDeath
+
+attack_frame = 6
 
 image_xscale = 2.75
 image_yscale  = 2.75

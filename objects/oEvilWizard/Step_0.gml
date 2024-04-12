@@ -27,9 +27,12 @@ switch state{
 		switchSprite(sEvilWizardAttack1, 0)
 		if image_index == 4{
 			create_hitbox(x, y, self, sEvilWizardAttack1HitBox, 24,4,15, image_xscale)
-			
 		}
-		break
+	break
+	case "attacked":
+		state = "stall"
+		alarm[1] = 25
+	break
 	case "death":
 		switchSprite(sEvilWizardDeath, 0)
 		break

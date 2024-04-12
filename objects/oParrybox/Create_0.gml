@@ -1,2 +1,2 @@
-alarm[0] = 4
+alarm[0] = 6
 knockback = 0

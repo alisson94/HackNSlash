@@ -19,7 +19,7 @@ if  state == "attack1" or
 {
 	
 	state = "move"
-	spd_dash = spd*9
+	spd_dash = spd_dash_backup
 }
 
 

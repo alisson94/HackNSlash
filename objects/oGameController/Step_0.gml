@@ -1,4 +1,4 @@
-return
+//return
 max_enemy =  2// 5 + 10*(global.nivel-1)
 show_debug_message(global.quantEnemyDeath)
 if global.quantEnemyDeath > 5 + 10*global.nivel{
